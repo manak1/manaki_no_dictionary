@@ -1,0 +1,63 @@
+body {
+  background: url("../img/background.jpg") center center / cover no-repeat fixed;
+}
+
+.main {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 40px;
+
+
+
+  &__wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 36px;
+
+    &::after {
+      content: "";
+      display: block;
+      margin: 16px auto;
+      width: 90%;
+      height: 1px;
+      background-color: #eee;
+
+    }
+
+  }
+
+  &__txt {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+}
+
+.table {
+  border-top: 0;
+
+
+  &__head {
+    font-size: 14px;
+    text-align: left;
+    border-top: 0 !important;
+    font-weight: 500;
+  }
+
+
+}
+
+
+.form {
+
+  margin-bottom: 30px;
+
+  &__input {}
+
+}

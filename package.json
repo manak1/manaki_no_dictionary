@@ -1,0 +1,24 @@
+{
+  "name": "Manaki_No_Dictionary",
+  "version": "1.0.0",
+  "description": "applciation to translate a word in japanese.",
+  "author": "manaki",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.6.0",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "firebase": "^6.6.0",
+    "nuxt": "^2.0.0",
+    "vue-resource": "^1.5.1",
+    "vuexfire": "^3.1.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/proxy": "^1.3.3"
+  }
+}
