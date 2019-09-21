@@ -1,18 +1,19 @@
 <template>
-  <form class="form" v-on:submit.prevent="post">
-    <input
-      v-model="word"
-      class="form__input"
-      type="text"
-      id="word"
-      name="word"
-      placeholder="Type any word here"
-      onforcus="this.value = ''"
-      style="
-      text-align:center"
-    />
-    <button class="form__btn">search!</button>
-  </form>
+  <v-form v-on:submit.prevent="post" class>
+    <v-flex class="d-flex pt-10 xs11 lg4 mx-auto">
+      <v-text-field
+        prepend-icon="mdi-search"
+        :elevation="10"
+        v-model="word"
+        label="気になる単語"
+        required
+        outlined
+        placeholder="好きな英単語を入力してね(/・ω・)/"
+      ></v-text-field>
+
+      <!--  <v-btn class="text-center mt-3 ml-4 info primary form__btn" @click="post">検索する！</v-btn> -->
+    </v-flex>
+  </v-form>
 </template>
 
 <script>
@@ -46,26 +47,37 @@ export default {
     },
 
     post() {
-      let data = {
-        key: this.word
-      };
+      if (this.word == "") {
+        alert("入力内容が間違っています！('Д')");
+      } else {
+        const response = this.$axios
+          .$post("https://dictionary--api.glitch.me/word", { word: this.word })
+          .then(res => {
+            let result = res.split("、");
 
-      console.log(data);
-      const response = this.$axios
-        .$post("https://dictionary--api.glitch.me/word", { word: this.word })
-        .then(res => {
-          this.definition = res;
-          console.log(typeof this.definition);
-          this.$store.dispatch("form/add", this.word, this.definition);
-          this.word = "";
-        });
-      /*    .then(() => {
-          this.help();
+            let dataSets = {
+              word: this.word,
+              translated: result[0] + "、" + result[1] + "、" + result[2]
+            };
+
+            this.$store.dispatch("form/add", dataSets);
+            this.word = "";
+          });
+        /*    .then(() => {ed
+        this.help();
         }); */
+      }
     },
+
+    checkValid(result) {},
 
     help() {
       console.log("test");
+    }
+  },
+  computed: {
+    dictionary() {
+      return this.$store.state.form.dictionary;
     }
   }
 };
@@ -75,3 +87,17 @@ export default {
 /*
 http://public.dejizo.jp/NetDicV09.asmx/SearchDicItemLite?Dic=EJdict&Word=water&Scope=HEADWORD&Match=STARTWITH&Merge=AND&Prof=XHTML&PageSize=20&PageIndex=0 
  */
+
+
+ <style>
+.form {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+/* 
+::placeholder {
+  font-size: 10px;
+} */
+</style>
+
+

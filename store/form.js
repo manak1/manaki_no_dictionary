@@ -13,10 +13,8 @@ const db = firebase.firestore();
 const formRef = db.collection('dictionary')
 
 export const state = () => ({
-  words: []
+  dictionary: []
 })
-
-
 
 export const actions = {
 
@@ -27,14 +25,16 @@ export const actions = {
     bindFirestoreRef('dictionary', formRef)
   }),
 
-  add: firestoreAction((context, word, translate) => {
-    console.log(typeof word);
-
+  add: firestoreAction((context, wordData) => {
 
     formRef.add({
-      word: "test",
-      translated: translate
+      word: wordData.word,
+      translated: wordData.translated
     })
+  }),
+
+  remove: firestoreAction((context, id) => {
+    formRef.doc(id).delete()
   })
 
 

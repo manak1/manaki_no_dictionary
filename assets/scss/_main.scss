@@ -1,13 +1,12 @@
 body {
   background: url("../img/background.jpg") center center / cover no-repeat fixed;
+
 }
 
 .main {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
-  padding-top: 40px;
-
-
+  padding-top: 96px;
+  font-family: 'Noto Sans JP', sans-serif !important;
 
   &__wrapper {
     max-width: 1140px;
@@ -57,7 +56,33 @@ body {
 .form {
 
   margin-bottom: 30px;
+  margin: 0 auto;
 
-  &__input {}
+  &__input {
+    max-width: 100px;
+  }
+
+}
+
+.test {
+  max-width: 100px;
+}
+
+
+
+
+
+/* Vuetify Content */
+.table__wrapper {
+  max-width: 800px !important;
+}
+
+.v-toolbar__content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.v-input__prepend-outer {
+  display: none !important;
 
 }

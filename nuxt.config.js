@@ -21,11 +21,15 @@ export default {
     link: [{
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon.ico',
+        href: '/img/icon.ico',
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap'
+        href: 'https://fonts.googleapis.com/css?family=Sawarabi+Mincho'
+      },
+      {
+        rel: 'stylesheet',
+        href: "https://fonts.googleapis.com/css?family=Sawarabi+Gothic"
       }
     ]
   },
@@ -39,7 +43,7 @@ export default {
    ** Global CSS
    */
   css: [
-    '~/assets/css/index.css',
+    '@/assets/css/index.css'
   ],
   /*
    ** Plugins to load before mounting the App
@@ -59,7 +63,10 @@ export default {
       pathRewrite: {
         '^/api': '/api/v1'
       }
-    }]
+    }],
+    '@nuxtjs/vuetify',
+    'nuxt-webfontloader'
+
   ],
 
   proxy: [
@@ -79,6 +86,15 @@ export default {
   axios: {
     proxy: true,
   },
+
+  webfontloader: {
+    google: {
+      families: ['Noto+Sans+JP']
+    }
+  },
+
+
+
 
 
   /*
