@@ -14,7 +14,7 @@
     "@nuxtjs/axios": "^5.6.0",
     "@nuxtjs/dotenv": "^1.4.0",
     "firebase": "^6.6.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "nuxt-webfontloader": "^1.1.0",
     "vue-resource": "^1.5.1",
     "vuexfire": "^3.1.2"
